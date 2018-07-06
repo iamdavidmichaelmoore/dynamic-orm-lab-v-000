@@ -55,8 +55,8 @@ class InteractiveRecord
     DB[:conn].execute(sql)
   end
 
-  def self.find_by(attribute)
-    sql = "SELECT * FROM #{self.table_name} WHERE #{attribute[0]}= '#{attribute[0][0]}'"
+  def self.find_by(hash)
+    sql = "SELECT * FROM #{self.table_name} WHERE #{hash.keys.first.to_s}= '#{hash[hash.keys.first]}'"
     DB[:conn].execute(sql)
   end
 
